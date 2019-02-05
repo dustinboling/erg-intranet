@@ -13,12 +13,12 @@ class Folder extends Model
      */
     public function parent()
     {
-        return $this->belongsTo('App\Folder')->where('parent_id',0);
+        return $this->hasOne('App\Folder', 'id', 'parent_id');
     }
 
     public function children()
     {
-        return $this->hasMany('App\Folder','parent_id');
+        return $this->hasMany('App\Folder', 'parent_id', 'id');
     }
 }
 
