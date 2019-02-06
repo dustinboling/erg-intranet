@@ -9,16 +9,19 @@ class Folder extends Model
     protected $guarded = [];
 
     /**
-     * Get the Folder parent associated with the Folder
+     * Get the Parent Folder associated with the Folder
      */
-    public function parent()
+    public function folder()
     {
-        return $this->hasOne('App\Folder', 'id', 'parent_id');
+        return $this->belongsTo('App\Folder');
     }
 
-    public function children()
+    /**
+     * Get the Folders associated with the Folder
+     */
+    public function folders()
     {
-        return $this->hasMany('App\Folder', 'parent_id', 'id');
+        return $this->hasMany('App\Folder');
     }
 }
 

@@ -6,22 +6,17 @@
     <div class="row mb-4">
 
         <div class="col">
-            <div class="card text-white bg-primary">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <p class="card-text">Welcome to Eugene Realty Group's Intranet!</p>
-                    <p class="card-text">This is our company wide directory, file storage and Intranet. We have company logos, your business card photos, training videos, training audio files, an e-book, and checklists galore on here.</p>
-                    <p class="card-text">Feel free to browse around and we hope you will find everything you need in a nice, orderly format.</p>
-                    <p class="card-text">Don't see what you need? Please let Shannon, Matt or Kendra know and we can arrange to get it to you in another fashion. You'll find our contact info in the Agent Directory.</p>
-                    <p class="card-text">Have Fun!!!</p>
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
                 </div>
+            @endif
+            <div class="alert alert-primary" role="alert">
+                <p>Welcome to Eugene Realty Group's Intranet!</p>
+                    <p class="card-text">This is our company wide directory, file storage and Intranet. We have company logos, your business card photos, training videos, training audio files, an e-book, and checklists galore on here.</p>
+                    <p>Feel free to browse around and we hope you will find everything you need in a nice, orderly format.</p>
+                    <p>Don't see what you need? Please let Shannon, Matt or Kendra know and we can arrange to get it to you in another fashion. You'll find our contact info in the Agent Directory.</p>
+                    <p>Have Fun!!!</p>
             </div>
         </div>
     </div>
