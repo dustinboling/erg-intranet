@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="container">
-
-    <div class="row mb-4">
+    <div class="row">
 
         <div class="col">
             @if (session('status'))
@@ -18,6 +17,7 @@
                     <p>Don't see what you need? Please let Shannon, Matt or Kendra know and we can arrange to get it to you in another fashion. You'll find our contact info in the Agent Directory.</p>
                     <p>Have Fun!!!</p>
             </div>
+            {{ Breadcrumbs::render('home') }}
         </div>
     </div>
 

@@ -4,13 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1 class="text-center my-4">Resources</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Resources</li>
-                </ol>
-            </nav>
+            <h1 class="text-center my-4">Folders</h1>
+            {{ Breadcrumbs::render('folders') }}
         </div>
     </div>
     <div class="row">

@@ -8,7 +8,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item"><a href="/folders">Resources</a></li>
+                    <li class="breadcrumb-item"><a href="/folders">Folders</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $folder->name }}</li>
                 </ol>
             </nav>
