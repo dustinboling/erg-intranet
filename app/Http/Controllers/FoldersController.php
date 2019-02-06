@@ -8,13 +8,25 @@ use Illuminate\Http\Request;
 class FoldersController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $folders = Folder::all()->where('folder_id', '==', null);
+
+        return view('folders.index', compact('folders'));
     }
 
     /**
@@ -41,21 +53,21 @@ class FoldersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Folder  $folders
+     * @param  \App\Folder  $folder
      * @return \Illuminate\Http\Response
      */
-    public function show(Folder $folders)
+    public function show(Folder $folder)
     {
-        //
+        return view('folders.show', compact('folder'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Folder  $folders
+     * @param  \App\Folder  $folder
      * @return \Illuminate\Http\Response
      */
-    public function edit(Folder $folders)
+    public function edit(Folder $folder)
     {
         //
     }
@@ -64,10 +76,10 @@ class FoldersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Folder  $folders
+     * @param  \App\Folder  $folder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Folder $folders)
+    public function update(Request $request, Folder $folder)
     {
         //
     }
@@ -75,10 +87,10 @@ class FoldersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Folder  $folders
+     * @param  \App\Folder  $folder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Folder $folders)
+    public function destroy(Folder $folder)
     {
         //
     }
