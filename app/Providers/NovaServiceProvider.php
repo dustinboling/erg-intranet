@@ -17,6 +17,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+
+        Nova::resources([
+            \DmitryBubyakin\NovaMedialibraryField\Resources\Media::class,
+        ]);
     }
 
     /**

@@ -6,6 +6,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
+use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -48,6 +49,7 @@ class Folder extends Resource
             Text::make('Description'),
             BelongsTo::make('Folder')->nullable(),
             HasMany::make('Folders'),
+            Medialibrary::make('Images'), // it uses default collection
         ];
     }
 

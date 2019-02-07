@@ -58,7 +58,9 @@ class FoldersController extends Controller
      */
     public function show(Folder $folder)
     {
-        return view('folders.show', compact('folder'));
+        $media_items = $folder->getMedia();
+
+        return view('folders.show', compact('folder', 'media_items'));
     }
 
     /**
