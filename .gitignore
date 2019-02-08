@@ -1,13 +1,19 @@
-/node_modules
-/public/hot
-/public/storage
-/public/media
-/storage/*
-# /storage/*.key
-# /vendor
-.env
 .phpunit.result.cache
-Homestead.json
-Homestead.yaml
+/nova
+
+### Laravel ###
+/vendor/
+node_modules/
 npm-debug.log
 yarn-error.log
+
+# Laravel 5 & Lumen specific
+public/storage
+public/media
+public/hot
+storage/*.key
+storage/medialibrary
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
