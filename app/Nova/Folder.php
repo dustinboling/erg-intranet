@@ -36,6 +36,13 @@ class Folder extends Resource
     ];
 
     /**
+     * The logical group associated with the resource.
+     *
+     * @var string
+     */
+    public static $group = 'Agent Access';
+
+    /**
      * Get the fields displayed by the resource.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -49,7 +56,7 @@ class Folder extends Resource
             Text::make('Description'),
             BelongsTo::make('Folder')->nullable(),
             HasMany::make('Folders'),
-            Medialibrary::make('Images'), // it uses default collection
+            Medialibrary::make('Images')->hideFromIndex(), // it uses default collection
         ];
     }
 

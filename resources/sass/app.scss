@@ -1,6 +1,6 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 // Variables
 @import 'variables';
@@ -9,10 +9,11 @@
 @import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
-  background-color: #fff;
+  background-image: linear-gradient(30deg, rgb(66, 193, 66), rgb(38, 167, 222, 1));
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .card-header {
-    font-weight: 700;
+    font-weight: 900;
 }
+

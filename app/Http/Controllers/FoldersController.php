@@ -58,9 +58,21 @@ class FoldersController extends Controller
      */
     public function show(Folder $folder)
     {
-        $media_items = $folder->getMedia();
+        $media = $folder->getMedia();
+        
+        $images = [];
+        $docs = [];
 
-        return view('folders.show', compact('folder', 'media_items'));
+        foreach ($media as $media_item) {
+            
+            if ($media_item->getTypeFromMime() === "image")
+                $images[] = $media_item;
+            else
+                $docs[] = $media_item;
+             
+        }
+
+        return view('folders.show', compact('folder', 'images', 'docs'));
     }
 
     /**

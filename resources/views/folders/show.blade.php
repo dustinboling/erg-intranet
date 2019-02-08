@@ -8,7 +8,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item"><a href="/folders">Folders</a></li>
+                    <li class="breadcrumb-item"><a href="/folders">Top Folder</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $folder->name }}</li>
                 </ol>
             </nav>
@@ -17,13 +17,10 @@
 
     @if (count($folder->folders) > 0)
     <div class="row">
-        <div class="col-12">
-            <h2>Subfolders</h2>
-        </div>
 
         @foreach ($folder->folders as $sub_folder)
         <div class="col-lg-3 mb-4">
-            <div class="card">
+            <div class="card text-center">
                 <div class="card-header">{{ $sub_folder->name }}</div>
                 <div class="card-body">{{ $sub_folder->description }}</div>
                 <ul class="list-group list-group-flush">
@@ -39,30 +36,58 @@
     </div>
     @endif
 
-    @if (count($media_items) > 0)
+    @if (count($docs) > 0)
     <div class="row">
         <div class="col">
-            <h2>Media</h2>
+            <h2>Documents</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">File Name</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($docs as $doc)
+                    <tr>
+                        <th scope="row">{{ $doc->id }}</th>
+                        <td>{{ $doc->name }}</td>
+                        <td>21kb</td>
+                        <td><a href="#" class="">Open</a></td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @endif
+
+    @if (count($images) > 0)
+    <div class="row">
+        <div class="col">
+            <h2>Photos</h2>
 
             <div class="row">
 
-                @foreach ($media_items as $media_item)
+                @foreach ($images as $img)
                 <div class="col-md-3 mb-4">
 
                     <div class="card">
-                        <a href="{{ $media_item->getUrl('') }}">
-                            <img src="{{ $media_item->getUrl('thumb') }}" class="card-img-top" alt="{{ $media_item->name }}">
+                        <a href="{{ $img->getUrl('') }}">
+                            <img src="{{ $img->getUrl('thumb') }}" class="card-img-top" alt="{{ $img->name }}">
                         </a>
                         <div class="card-body">
-                            <h5 class="card-title">{{ $media_item->name }}</h5>
-                            <p class="card-text">{{ $media_item->description }}</p>
+                            <h5 class="card-title">{{ $img->name }}</h5>
+                            <p class="card-text">{{ $img->description }}</p>
                             <p class="card-text">Right-click on the links below to download and save the image.</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="{{ $media_item->getUrl() }}">Original (Full Size)</a></li>
-                            <li class="list-group-item"><a href="{{ $media_item->getUrl() }}">Large</a></li>
-                            <li class="list-group-item"><a href="{{ $media_item->getUrl() }}">Media</a></li>
-                            <li class="list-group-item"><a href="{{ $media_item->getUrl() }}">Small</a></li>
+                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Original (Full Size)</a></li>
+                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Large</a></li>
+                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Media</a></li>
+                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Small</a></li>
                         </ul>
                     </div>
                 </div>
@@ -71,5 +96,6 @@
         </div>
     </div>
     @endif
+
 </div>
 @endsection

@@ -20,5 +20,5 @@ Breadcrumbs::for('blog', function ($trail) {
 // Home > Folders
 Breadcrumbs::for('folders', function ($trail) {
     $trail->parent('home');
-    $trail->push('Folders', route('folders.index'));
+    $trail->push('Top Folder', route('folders.index'));
 });

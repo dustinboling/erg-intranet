@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1 class="text-center my-4">Folders</h1>
+            <!-- <h1 class="text-center my-4">Folders</h1> -->
             {{ Breadcrumbs::render('folders') }}
         </div>
     </div>
@@ -12,7 +12,7 @@
 
         @foreach ($folders as $folder)
         <div class="col-lg-3 mb-4">
-            <div class="card">
+            <div class="card text-center">
                 <div class="card-header">{{ $folder->name }}</div>
                 <div class="card-body">{{ $folder->description }}</div>
                 <ul class="list-group list-group-flush">

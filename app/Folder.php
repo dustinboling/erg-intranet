@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\File;
 use Spatie\MediaLibrary\Models\Media;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MeidaLibrary\HasMedia\Manipulations;
@@ -29,6 +30,9 @@ class Folder extends Model implements HasMedia
         return $this->hasMany('App\Folder');
     }
 
+    /**
+     * Register Media Conversions
+     */
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
