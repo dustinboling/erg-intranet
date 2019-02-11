@@ -31,6 +31,14 @@ class Folder extends Model implements HasMedia
     }
 
     /**
+     * Get the Notes associated with the Folder
+     */
+    public function notes()
+    {
+        return $this->hasMany('App\Note');
+    }
+
+    /**
      * Register Media Conversions
      */
     public function registerMediaConversions(Media $media = null)

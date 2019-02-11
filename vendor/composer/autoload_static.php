@@ -516,6 +516,7 @@ class ComposerStaticInit400514db6dd0fd838693c6b4884ad235
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Note' => __DIR__ . '/../..' . '/app/Note.php',
         'App\\Nova\\Folder' => __DIR__ . '/../..' . '/app/Nova/Folder.php',
         'App\\Nova\\Resource' => __DIR__ . '/../..' . '/app/Nova/Resource.php',
         'App\\Nova\\User' => __DIR__ . '/../..' . '/app/Nova/User.php',

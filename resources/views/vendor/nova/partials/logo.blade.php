@@ -1,1 +1,1 @@
-<h3>ERG Admin</h3>
+<img src="/img/eugene-realty-logo-text-white.png" alt="Eugene Realty Group Intranet">

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFoldersTable extends Migration
+class CreateNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateFoldersTable extends Migration
      */
     public function up()
     {
-        Schema::create('folders', function (Blueprint $table) {
+        Schema::create('notes', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('folder_id')->nullable();
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->unsignedInteger('folder_id');
+            $table->string('title');
+            $table->text('content');
             $table->unsignedInteger('added_by')->nullable();
             $table->foreign('added_by')->references('id')->on('users');
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreateFoldersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('folders');
+        Schema::dropIfExists('notes');
     }
 }

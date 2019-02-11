@@ -17,19 +17,19 @@
 
     @if (count($folder->folders) > 0)
     <div class="row">
-
-        @foreach ($folder->folders as $sub_folder)
-        <div class="col-lg-3 mb-4">
-            <div class="card text-center">
-                <div class="card-header">{{ $sub_folder->name }}</div>
-                <div class="card-body">{{ $sub_folder->description }}</div>
-                <ul class="list-group list-group-flush">
-                    @foreach ($sub_folder->folders as $subsub_folder)
-                    <li class="list-group-item"><a href="/folders/{{ $subsub_folder->id }}">{{ $subsub_folder->name }}</a></li>
-                    @endforeach
-                </ul>
-                <div class="card-footer"><small><a href="/folders/{{ $sub_folder->id }}">Open</a></small></div>
-            </div>
+        @foreach ($folder->folders as $subfolder)
+        <div class="col-lg-3 col-md-6 mb-4">
+            <a href="/folders/{{ $subfolder->id }}">
+                <div class="card text-white text-center">
+                    
+                        <img src="http://placeimg.com/768/432/nature?v={{ rand() }}" class="card-img" alt="{{ $folder->name }}">
+                    
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ $subfolder->name }}</h5>
+                        <p class="card-text">{{ $subfolder->description }}</p>
+                    </div>
+                </div>
+            </a>
         </div>
         @endforeach
 
@@ -81,13 +81,12 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $img->name }}</h5>
                             <p class="card-text">{{ $img->description }}</p>
-                            <p class="card-text">Right-click on the links below to download and save the image.</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Original (Full Size)</a></li>
-                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Large</a></li>
-                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Media</a></li>
-                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Small</a></li>
+                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Original (for Printing)</a></li>
+                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Large (1024 pixels)</a></li>
+                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Medium (640 pixels)</a></li>
+                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Small (240 pixels)</a></li>
                         </ul>
                     </div>
                 </div>
