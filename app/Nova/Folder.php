@@ -54,7 +54,7 @@ class Folder extends Resource
             ID::make()->sortable(),
             Text::make('Name')->sortable(),
             Text::make('Description'),
-            BelongsTo::make('Folder')->nullable(),
+            BelongsTo::make('Folder'),
             HasMany::make('Folders'),
             HasMany::make('Notes'),
             Medialibrary::make('Images')->hideFromIndex(), // it uses default collection
