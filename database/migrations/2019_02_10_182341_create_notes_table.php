@@ -16,6 +16,7 @@ class CreateNotesTable extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('folder_id');
+            $table->foreign('folder_id')->references('id')->on('folders');
             $table->string('title');
             $table->text('content');
             $table->unsignedInteger('added_by')->nullable();
