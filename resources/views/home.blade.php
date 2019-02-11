@@ -14,8 +14,8 @@
     <div class="row">
         <div class="col">
             <div class="jumbotron bg-erg-gradient text-white">
-                <h1 class="display-4">Welcome to the ERG Intranet!</h1>
-                <p class="lead">This is our company wide directory, file storage and Intranet. We have company logos, your business card photos, training videos, training audio files, an e-book, and checklists galore on here.</p>
+                <h1 class="display-4">Hello, {{ auth()->user()->name }}!</h1>
+                <p class="lead">Welcome to our company wide directory, file storage and Intranet. We have company logos, your business card photos, training videos, training audio files, an e-book, and checklists galore on here.</p>
                 <hr class="my-4">
                 <p>Feel free to browse around and we hope you will find everything you need in a nice, orderly format.</p>
             </div>
