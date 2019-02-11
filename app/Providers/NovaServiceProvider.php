@@ -47,7 +47,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         Gate::define('viewNova', function ($user) {
             return in_array($user->email, [
-                'dustin@eugenerealtygroup.com'
+                'dustin@eugenerealtygroup.com',
+                'shannon@eugenerealtygroup.com',
             ]);
         });
     }
