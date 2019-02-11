@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4874a6cdbfab4cb81aa589e45b8ce5a",
+    "content-hash": "6d3345c1438081d36adad36d56599d1c",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -123,16 +123,16 @@
         },
         {
             "name": "dmitrybubyakin/nova-medialibrary-field",
-            "version": "1.1.7",
+            "version": "1.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dmitrybubyakin/nova-medialibrary-field.git",
-                "reference": "78b758168e1c1e5d6c01ab72e0c63990b0b01873"
+                "reference": "81e60382fd111cf6bcfd0510df86609cabb93ddf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dmitrybubyakin/nova-medialibrary-field/zipball/78b758168e1c1e5d6c01ab72e0c63990b0b01873",
-                "reference": "78b758168e1c1e5d6c01ab72e0c63990b0b01873",
+                "url": "https://api.github.com/repos/dmitrybubyakin/nova-medialibrary-field/zipball/81e60382fd111cf6bcfd0510df86609cabb93ddf",
+                "reference": "81e60382fd111cf6bcfd0510df86609cabb93ddf",
                 "shasum": ""
             },
             "require": {
@@ -168,7 +168,7 @@
                 "medialibrary",
                 "nova"
             ],
-            "time": "2019-02-01T09:43:23+00:00"
+            "time": "2019-02-09T10:42:58+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1110,12 +1110,17 @@
         },
         {
             "name": "laravel/nova",
-            "version": "dev-master",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:laravel/nova.git",
+                "reference": "e7f7d3ca109d4630882fa8122b2926e12c364496"
+            },
             "dist": {
-                "type": "path",
-                "url": "./nova",
-                "reference": "6b34fd3882e3cff2dc99d288393e92025bc93094",
-                "shasum": null
+                "type": "zip",
+                "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-e7f7d3ca109d4630882fa8122b2926e12c364496-zip-55b2a1.zip",
+                "reference": "e7f7d3ca109d4630882fa8122b2926e12c364496",
+                "shasum": "ee98d8f1db4cbc33dbe9f634ac5e3862ff446091"
             },
             "require": {
                 "cakephp/chronos": "~1.0",
@@ -1169,7 +1174,8 @@
             "keywords": [
                 "admin",
                 "laravel"
-            ]
+            ],
+            "time": "2019-01-21T21:43:45+00:00"
         },
         {
             "name": "laravel/slack-notification-channel",
@@ -4278,16 +4284,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "100633629bf76d57430b86b7098cd6beb996a35a"
+                "reference": "dc4f10b6b1148744facb784015e4b339d7feec23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/100633629bf76d57430b86b7098cd6beb996a35a",
-                "reference": "100633629bf76d57430b86b7098cd6beb996a35a",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/dc4f10b6b1148744facb784015e4b339d7feec23",
+                "reference": "dc4f10b6b1148744facb784015e4b339d7feec23",
                 "shasum": ""
             },
             "require": {
@@ -4296,7 +4302,7 @@
                 "php": ">=5.6.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5.7.10|~6.5|~7.0"
+                "phpunit/phpunit": "~5.7.10|~6.5|~7.0|~8.0"
             },
             "type": "library",
             "extra": {
@@ -4339,7 +4345,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2018-10-02T21:52:37+00:00"
+            "time": "2019-02-08T14:43:54+00:00"
         },
         {
             "name": "myclabs/deep-copy",
