@@ -38,7 +38,7 @@ class User extends Resource
      *
      * @var string
      */
-    public static $group = 'Admin Access';
+    public static $group = 'Admins Only';
 
     /**
      * Get the fields displayed by the resource.
