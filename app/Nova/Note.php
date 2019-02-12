@@ -52,7 +52,7 @@ class Note extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Title')->sortable(),
-            Trix::make('Content'),
+            Trix::make('Content')->alwaysShow(), // TODO: enable ->withFiles('public')
             BelongsTo::make('Folder'),
         ];
     }
