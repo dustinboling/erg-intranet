@@ -58,6 +58,7 @@ class FoldersController extends Controller
      */
     public function show(Folder $folder)
     {
+        $notes = $folder->notes;
         $media = $folder->getMedia();
         
         $images = [];
@@ -72,7 +73,7 @@ class FoldersController extends Controller
              
         }
 
-        return view('folders.show', compact('folder', 'images', 'docs'));
+        return view('folders.show', compact('folder', 'notes', 'images', 'docs'));
     }
 
     /**

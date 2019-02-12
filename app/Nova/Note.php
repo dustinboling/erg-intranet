@@ -35,11 +35,18 @@ class Note extends Resource
     ];
 
     /**
+     * The logical group associated with the resource.
+     *
+     * @var string
+     */
+    public static $group = 'Agent Accessible';
+
+    /**
      * Indicates if the resource should be displayed in the sidebar.
      *
      * @var bool
      */
-    public static $displayInNavigation = false;
+    public static $displayInNavigation = true;
 
     /**
      * Get the fields displayed by the resource.

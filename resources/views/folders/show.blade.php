@@ -35,6 +35,31 @@
 
     </div>
     @endif
+    <!-- NOTES -->
+    @if (count($notes) > 0)
+    <div class="row">
+        <div class="col">
+            <h2>Notes</h2>
+
+            @foreach ($notes as $note)
+            <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">{{ $note->title }}</div>
+                    <div class="card-body">
+                        <!-- <h5 class="card-title">Warning card title</h5> -->
+                        {!! $note->content !!}
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            @endforeach
+
+        </div>
+    </div>
+    @endif
     <!-- DOCUMENTS -->
     @if (count($docs) > 0)
     <div class="row">
@@ -43,7 +68,6 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">File Name</th>
                         <th scope="col">Size</th>
                         <th scope="col">File Type</th>
@@ -54,8 +78,7 @@
                 <tbody>
                     @foreach ($docs as $doc)
                     <tr>
-                        <th scope="row">{{ $doc->id }}</th>
-                        <td>{{ ucwords($doc->name) }}</td>
+                        <th scope="row">{{ ucwords($doc->name) }}</th>
                         <td>{{ $doc->getHumanReadableSizeAttribute() }}</td>
                         <td>{{ strtoupper($doc->getExtensionAttribute()) }}</td>
                         <td><a href="{{ $doc->getUrl() }}" target="_blank">Open</a></td>
