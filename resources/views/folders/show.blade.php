@@ -43,7 +43,7 @@
 
             @foreach ($notes as $note)
             <div class="row">
-            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card">
                     <div class="card-header">{{ $note->title }}</div>
                     <div class="card-body">
