@@ -41,7 +41,7 @@ class Folder extends Resource
      *
      * @var string
      */
-    public static $group = 'Agent Access';
+    public static $group = 'Agent Accessible';
 
     /**
      * Get the fields displayed by the resource.
