@@ -83,10 +83,11 @@
                             <p class="card-text">{{ $img->description }}</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Original (for Printing)</a></li>
-                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Large (1024 pixels)</a></li>
-                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Medium (640 pixels)</a></li>
-                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">Small (240 pixels)</a></li>
+                            
+                            <li class="list-group-item">{{ ucwords($img->getHumanReadableSizeAttribute()) }}</li>
+                            <li class="list-group-item">{{ strtoupper($img->getExtensionAttribute()) }}</li>
+                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">View Original</a></li>
+                            <li class="list-group-item"><a href="{{ $img->getUrl() }}" download>Download Original</a></li>
                         </ul>
                     </div>
                 </div>
