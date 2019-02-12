@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row mb-4">
         <div class="col">
             <h1 class="text-center my-4">{{ $folder->name }}</h1>
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb bg-light">
                     <li class="breadcrumb-item"><a href="/">Home</a></li>
                     <li class="breadcrumb-item"><a href="/folders">Top Folder</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $folder->name }}</li>
@@ -32,39 +32,33 @@
             </a>
         </div>
         @endforeach
-
     </div>
+    <hr class="mt-1 mb-4" />
     @endif
+
     <!-- NOTES -->
     @if (count($notes) > 0)
     <div class="row">
-        <div class="col">
-            <h4>Notes</h4>
-
-            @foreach ($notes as $note)
-            <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-header">{{ $note->title }}</div>
-                    <div class="card-body">
-                        <!-- <h5 class="card-title">Warning card title</h5> -->
-                        {!! $note->content !!}
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                    </div>
+        @foreach ($notes as $note)
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card" style="box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px;">
+                <div class="card-header bg-erg-gradient text-white">{{ $note->title }}</div>
+                <div class="card-body">
+                    <!-- <h5 class="card-title">Warning card title</h5> -->
+                    {!! $note->content !!}
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                 </div>
             </div>
-            </div>
-
-            @endforeach
-            <hr />
         </div>
+        @endforeach
     </div>
+    <hr class="mt-1 mb-4" />
     @endif
+
     <!-- DOCUMENTS -->
     @if (count($docs) > 0)
     <div class="row">
         <div class="col">
-            <h4>Documents</h4>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -87,42 +81,31 @@
                     @endforeach
                 </tbody>
             </table>
-            <hr />
         </div>
     </div>
+    <hr class="mb-4" />
     @endif
+
 
     <!-- IMAGES -->
     @if (count($images) > 0)
     <div class="row">
-        <div class="col">
-            <h4>Images</h4>
-
-            <div class="row">
-
-                @foreach ($images as $img)
-                <div class="col-md-3 mb-4">
-
-                    <div class="card">
-                        <a href="{{ $img->getUrl('') }}">
-                            <img src="{{ $img->getUrl('thumb') }}" class="card-img-top" alt="{{ $img->name }}">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ ucwords($img->name) }}</h5>
-                            <p class="card-text">{{ $img->description }}</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            
-                            <li class="list-group-item">{{ $img->getHumanReadableSizeAttribute() }}</li>
-                            <li class="list-group-item">{{ strtoupper($img->getExtensionAttribute()) }}</li>
-                            <li class="list-group-item"><a href="{{ $img->getUrl() }}">View Original</a></li>
-                            <li class="list-group-item"><a href="{{ $img->getUrl() }}" download>Download Original</a></li>
-                        </ul>
-                    </div>
-                </div>
-                @endforeach
+        @foreach ($images as $img)
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <a href="{{ $img->getUrl('') }}">
+                    <img src="{{ $img->getUrl('thumb') }}" class="card-img-top" alt="{{ $img->name }}">
+                </a>
+                <div class="card-header bg-erg-gradient text-white">{{ ucwords($img->name) }}</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ $img->getHumanReadableSizeAttribute() }}</li>
+                    <li class="list-group-item">{{ strtoupper($img->getExtensionAttribute()) }}</li>
+                    <li class="list-group-item"><a href="{{ $img->getUrl() }}">View Original</a></li>
+                    <li class="list-group-item"><a href="{{ $img->getUrl() }}" download>Download Original</a></li>
+                </ul>
             </div>
         </div>
+        @endforeach
     </div>
     @endif
 
