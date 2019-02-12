@@ -11,12 +11,12 @@
         "php": "^7.1.3",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "dmitrybubyakin/nova-medialibrary-field": "^1.1",
+        "eugenerealtygroup/nova-theme": "*",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
         "laravel/nova": "~1.0",
         "laravel/tinker": "^1.0",
-        "spatie/laravel-medialibrary": "^7.0.0",
-        "eugenerealtygroup/nova-theme": "*"
+        "spatie/laravel-medialibrary": "^7.0.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

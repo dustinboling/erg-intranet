@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
+use Treestoneit\BelongsToField\BelongsToField;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
@@ -54,10 +55,10 @@ class Folder extends Resource
             ID::make()->sortable(),
             Text::make('Name')->sortable(),
             Text::make('Description'),
-            BelongsTo::make('Folder'),
-            HasMany::make('Folders'),
+            BelongsTo::make('Parent Folder', 'folder', 'App\Nova\Folder')->nullable(),
+            HasMany::make('Sub Folders', 'folders', 'App\Nova\Folder'),
             HasMany::make('Notes'),
-            Medialibrary::make('Images')->hideFromIndex(), // it uses default collection
+            Medialibrary::make('Media')->hideFromIndex(), // it uses default collection
         ];
     }
 
