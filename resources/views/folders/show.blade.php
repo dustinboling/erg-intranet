@@ -72,7 +72,7 @@
     @if (count($images) > 0)
     <div class="row">
         <div class="col">
-            <h2>Photos</h2>
+            <h2>Images</h2>
 
             <div class="row">
 
