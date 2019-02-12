@@ -35,7 +35,7 @@
 
     </div>
     @endif
-
+    <!-- DOCUMENTS -->
     @if (count($docs) > 0)
     <div class="row">
         <div class="col">
@@ -46,6 +46,8 @@
                         <th scope="col">ID</th>
                         <th scope="col">File Name</th>
                         <th scope="col">Size</th>
+                        <th scope="col">File Type</th>
+                        <th scope="col">View</th>
                         <th scope="col">Download</th>
                     </tr>
                 </thead>
@@ -53,9 +55,11 @@
                     @foreach ($docs as $doc)
                     <tr>
                         <th scope="row">{{ $doc->id }}</th>
-                        <td>{{ $doc->name }}</td>
-                        <td>21kb</td>
-                        <td><a href="#" class="">Open</a></td>
+                        <td>{{ ucwords($doc->name) }}</td>
+                        <td>{{ $doc->getHumanReadableSizeAttribute() }}</td>
+                        <td>{{ strtoupper($doc->getExtensionAttribute()) }}</td>
+                        <td><a href="{{ $doc->getUrl() }}" target="_blank">Open</a></td>
+                        <td><a href="{{ $doc->getUrl() }}" download>Download</a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -64,6 +68,7 @@
     </div>
     @endif
 
+    <!-- IMAGES -->
     @if (count($images) > 0)
     <div class="row">
         <div class="col">
@@ -79,12 +84,12 @@
                             <img src="{{ $img->getUrl('thumb') }}" class="card-img-top" alt="{{ $img->name }}">
                         </a>
                         <div class="card-body">
-                            <h5 class="card-title">{{ $img->name }}</h5>
+                            <h5 class="card-title">{{ ucwords($img->name) }}</h5>
                             <p class="card-text">{{ $img->description }}</p>
                         </div>
                         <ul class="list-group list-group-flush">
                             
-                            <li class="list-group-item">{{ ucwords($img->getHumanReadableSizeAttribute()) }}</li>
+                            <li class="list-group-item">{{ $img->getHumanReadableSizeAttribute() }}</li>
                             <li class="list-group-item">{{ strtoupper($img->getExtensionAttribute()) }}</li>
                             <li class="list-group-item"><a href="{{ $img->getUrl() }}">View Original</a></li>
                             <li class="list-group-item"><a href="{{ $img->getUrl() }}" download>Download Original</a></li>
