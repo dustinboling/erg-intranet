@@ -18,7 +18,7 @@
     @if (count($folder->folders) > 0)
     <div class="row">
         @foreach ($folder->folders as $subfolder)
-        <div class="col-lg-3 col-md-6 mb-4">
+        <div class="col-lg-4 col-md-6 mb-4">
             <a href="/folders/{{ $subfolder->id }}">
                 <div class="card text-white text-center">
                     
@@ -39,7 +39,7 @@
     @if (count($notes) > 0)
     <div class="row">
         <div class="col">
-            <h2>Notes</h2>
+            <h4>Notes</h4>
 
             @foreach ($notes as $note)
             <div class="row">
@@ -56,7 +56,7 @@
             </div>
 
             @endforeach
-
+            <hr />
         </div>
     </div>
     @endif
@@ -64,7 +64,7 @@
     @if (count($docs) > 0)
     <div class="row">
         <div class="col">
-            <h2>Documents</h2>
+            <h4>Documents</h4>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -87,6 +87,7 @@
                     @endforeach
                 </tbody>
             </table>
+            <hr />
         </div>
     </div>
     @endif
@@ -95,7 +96,7 @@
     @if (count($images) > 0)
     <div class="row">
         <div class="col">
-            <h2>Images</h2>
+            <h4>Images</h4>
 
             <div class="row">
 
