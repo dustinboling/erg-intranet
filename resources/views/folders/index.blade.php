@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         @foreach ($folders as $folder)
-        <div class="col-lg-3 col-md-6 mb-4">
+        <div class="col-lg-3 col-sm-6 mb-4">
         <a href="/folders/{{ $folder->id }}">
             <div class="card text-white text-center">
                 
