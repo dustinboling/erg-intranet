@@ -9,7 +9,6 @@ Breadcrumbs::for('home', function ($trail) {
 Breadcrumbs::for('folders', function ($trail) {
     $trail->parent('home');
     $trail->push('All Resources', route('folders.index'));
-    $trail->push($folder->name);
 });
 
 // Home > Folders
