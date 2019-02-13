@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Folder;
+use App\Announcement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,8 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $folders = Folder::all()->where('folder_id', '==', null);
+        $folders = DB::table('folders')
+                        ->orderBy('name')
+                        ->get();
         
-        return view('home', compact('folders'));
+        $announcements = DB::table('announcements')->latest()->get();
+        
+        return view('home', compact('announcements', 'folders'));
     }
 }

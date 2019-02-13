@@ -39,7 +39,7 @@ class Note extends Resource
      *
      * @var string
      */
-    public static $group = 'Agent Accessible';
+    public static $group = 'Agent Viewable';
 
     /**
      * Indicates if the resource should be displayed in the sidebar.

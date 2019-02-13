@@ -73,13 +73,6 @@
         </nav>
 
         <main class="py-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="alert alert-info"><strong>Can't find what you need?</strong> Please let Shannon, Matt or Kendra know and we can arrange to get it to you in another fashion.</div>
-                    </div>
-                </div>
-            </div>
             @yield('content')
         </main>
     </div>

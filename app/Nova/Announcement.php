@@ -2,30 +2,27 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\BelongsTo;
-use Treestoneit\BelongsToField\BelongsToField;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 
-class Folder extends Resource
+class Announcement extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Folder';
+    public static $model = 'App\Announcement';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -33,7 +30,7 @@ class Folder extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name',
+        'id', 'title',
     ];
 
     /**
@@ -42,6 +39,13 @@ class Folder extends Resource
      * @var string
      */
     public static $group = 'Agent Viewable';
+
+    /**
+     * Indicates if the resource should be displayed in the sidebar.
+     *
+     * @var bool
+     */
+    public static $displayInNavigation = true;
 
     /**
      * Get the fields displayed by the resource.
@@ -53,12 +57,8 @@ class Folder extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name')->sortable(),
-            Text::make('Description'),
-            BelongsTo::make('Parent Folder', 'folder', 'App\Nova\Folder')->nullable(),
-            HasMany::make('Sub Folders', 'folders', 'App\Nova\Folder'),
-            HasMany::make('Notes'),
-            Medialibrary::make('Media')->hideFromIndex(), // it uses default collection
+            Text::make('Title')->sortable(),
+            Trix::make('Content')->alwaysShow(), // TODO: enable ->withFiles('public')
         ];
     }
 
