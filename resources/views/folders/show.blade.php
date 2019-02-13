@@ -18,7 +18,7 @@
     @if (count($folder->folders) > 0)
     <div class="row">
         @foreach ($folder->folders as $subfolder)
-        <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="col-lg-4 col-6 mb-4">
             <a href="/folders/{{ $subfolder->id }}">
                 <div class="card text-white text-center">
                     
