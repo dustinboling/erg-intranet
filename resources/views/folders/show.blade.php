@@ -5,13 +5,8 @@
     <div class="row mb-4">
         <div class="col">
             <h1 class="text-center my-4">{{ $folder->name }}</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb bg-light">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item"><a href="/folders">Top Folder</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ $folder->name }}</li>
-                </ol>
-            </nav>
+            <!-- routes/breadcrumbs -->
+            {{ Breadcrumbs::render('folder',$folder) }}
         </div>
     </div>
 
@@ -19,7 +14,7 @@
     <div class="row">
         @foreach ($folder->folders as $subfolder)
         <div class="col-lg-4 col-6 mb-4">
-            <a href="/folders/{{ $subfolder->id }}">
+            <a href="{{ route('folders.show', $subfolder->id) }}">
                 <div class="card text-white text-center">
                     
                         <img src="http://placeimg.com/768/432/nature?v={{ rand() }}" class="card-img" alt="{{ $folder->name }}">
