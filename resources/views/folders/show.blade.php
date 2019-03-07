@@ -5,7 +5,7 @@
     <div class="row mb-4">
         <div class="col">
             <!-- routes/breadcrumbs -->
-            {{ Breadcrumbs::render('folder',$folder) }}
+            {{ Breadcrumbs::render('folder', $folder) }}
             <h1 class="text-center mt-4">{{ $folder->name }}</h1>
             <h5 class="text-center text-muted font-italic mb-4">{{ $folder->description }}</h5>
         </div>
