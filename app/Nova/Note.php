@@ -61,7 +61,12 @@ class Note extends Resource
             ID::make()->sortable(),
             Text::make('Title')->sortable(),
             Trix::make('Content')->alwaysShow(), // TODO: enable ->withFiles('public')
-            Code::make('Embed Code')->language('php'),
+            Text::make('YouTube Video ID', 'youtube_video')
+                ->withMeta(['extraAttributes' => [
+                    'placeholder' => 'KUa2WHZNKsw']
+                ]),
+            Code::make('Embed Code')
+                ->language('php'),
             BelongsTo::make('Folder'),
         ];
     }
