@@ -62,7 +62,9 @@ class Note extends Resource
                 ->hideFromIndex()
                 ->hideFromDetail(),
             Text::make('Title')->sortable(),
-            Trix::make('Content')->alwaysShow(), // TODO: enable ->withFiles('public')
+            Trix::make('Content')
+                ->rules('required')
+                ->alwaysShow(), // TODO: enable ->withFiles('public')
             Text::make('YouTube Video ID', 'youtube_video')
                 ->hideFromIndex()
                 ->withMeta(['extraAttributes' => [
