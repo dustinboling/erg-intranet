@@ -12,19 +12,7 @@
 
     @if (count($folder->folders) > 0)
     <div class="row">
-        @foreach ($folder->folders as $subfolder)
-        <div class="col-lg-3 col-6 mb-4">
-            <a href="{{ route('folders.show', $subfolder->id) }}">
-                <div class="card text-white text-center">
-                    <img src="http://placeimg.com/768/432/nature?v={{ rand() }}" class="card-img rounded shadow-sm" alt="{{ $folder->name }}">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">{{ $subfolder->name }}</h5>
-                        <p class="card-text">{{ $subfolder->description }}</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        @endforeach
+        @each('folders.partials.cover', $folder->folders, 'folder')
     </div>
     <hr class="mt-1 mb-4" />
     @endif
