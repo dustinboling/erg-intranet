@@ -16,9 +16,7 @@
         <div class="col-lg-3 col-6 mb-4">
             <a href="{{ route('folders.show', $subfolder->id) }}">
                 <div class="card text-white text-center">
-                    
-                        <img src="http://placeimg.com/768/432/nature?v={{ rand() }}" class="card-img" alt="{{ $folder->name }}">
-                    
+                    <img src="http://placeimg.com/768/432/nature?v={{ rand() }}" class="card-img rounded shadow-sm" alt="{{ $folder->name }}">
                     <div class="card-img-overlay">
                         <h5 class="card-title">{{ $subfolder->name }}</h5>
                         <p class="card-text">{{ $subfolder->description }}</p>
@@ -35,12 +33,15 @@
     @if (count($notes) > 0)
     <div class="row">
         @foreach ($notes as $note)
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-md-6 mb-4">
             <div class="card" style="box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px;">
                 <div class="card-header bg-erg-gradient text-white">{{ $note->title }}</div>
                 <div class="card-body">
                     <!-- <h5 class="card-title">Warning card title</h5> -->
-                    {!! $note->content !!}
+                    <div class="mb-3">
+                        {!! $note->content !!}
+                    </div>
+                    {!! $note->embed_code !!}
                     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                 </div>
             </div>
