@@ -18,7 +18,7 @@ class CreateNotesTable extends Migration
             $table->unsignedInteger('folder_id');
             $table->foreign('folder_id')->references('id')->on('folders');
             $table->string('title');
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->unsignedInteger('added_by')->nullable();
             $table->foreign('added_by')->references('id')->on('users');
             $table->timestamps();
