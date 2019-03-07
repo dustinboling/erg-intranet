@@ -25,9 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $folders = Folder::orderBy('name', 'asc')->get();
-        $announcements = Announcement::latest()->get();
+        $topLevelFolders = Folder::where('folder_id', NULL)
+            ->orderBy('name', 'asc')
+            ->get();
+        $latestFolders = Folder::latest()
+            ->take(10)
+            ->orderBy('name', 'asc')
+            ->get();
+        $announcements = Announcement::latest()
+            ->take(10)
+            ->get();
 
-        return view('home', compact('announcements', 'folders'));
+        return view('home', compact('topLevelFolders', 'latestFolders', 'announcements'));
     }
 }
