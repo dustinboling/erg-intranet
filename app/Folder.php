@@ -21,10 +21,10 @@ class Folder extends Model implements HasMedia
     {
         return $this->belongsTo('App\Folder');
     }
-    public function parent()
-    {
-        return $this->belongsTo('App\Folder');
-    }
+    // public function parent()
+    // {
+    //     return $this->belongsTo('App\Folder');
+    // }
 
     /**
      * Get the Folders associated with the Folder
@@ -33,10 +33,10 @@ class Folder extends Model implements HasMedia
     {
         return $this->hasMany('App\Folder');
     }
-    public function children()
-    {
-        return $this->hasMany('App\Folder');
-    }
+    // public function children()
+    // {
+    //     return $this->hasMany('App\Folder');
+    // }
 
     /**
      * Get the Notes associated with the Folder

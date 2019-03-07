@@ -45,9 +45,10 @@
         </div>
         <div class="col-md-3">
             <ul class="list-group mb-4">
-                <li class="list-group-item list-group-item-action bg-erg-gradient text-white"><strong>Quick Links</strong></li>
-                @foreach ($folders as $folder)
-                <li class="list-group-item list-group-item-action"><a href="/folders/{{ $folder->id }}">{{ $folder->name }}</a></li>
+                <li class="list-group-item list-group-item-action bg-erg-gradient text-white"><strong>Latest Resources</strong></li>
+
+                @foreach ($folders->sortByDesc('created_at')->take(10) as $latestFolder)
+                <li class="list-group-item list-group-item-action"><a href="/folders/{{ $latestFolder->id }}">{{ $latestFolder->name }}</a></li>
                 @endforeach
             </ul>
         </div>

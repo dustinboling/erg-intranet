@@ -2,13 +2,14 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\BelongsTo;
-use Treestoneit\BelongsToField\BelongsToField;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Treestoneit\BelongsToField\BelongsToField;
 use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 
 class Folder extends Resource
@@ -52,9 +53,11 @@ class Folder extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()
+                ->hideFromIndex()
+                ->hideFromDetail(),
             Text::make('Name')->sortable(),
-            Text::make('Description'),
+            Textarea::make('Description')->alwaysShow(),
             BelongsTo::make('Parent Folder', 'folder', 'App\Nova\Folder')->nullable(),
             HasMany::make('Sub Folders', 'folders', 'App\Nova\Folder'),
             HasMany::make('Notes'),
@@ -104,5 +107,17 @@ class Folder extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query->orderBy('name', 'asc');
     }
 }

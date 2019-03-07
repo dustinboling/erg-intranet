@@ -8,6 +8,22 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 abstract class Resource extends NovaResource
 {
     /**
+     * Apply any applicable orderings to the query.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  array  $orderings
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    protected static function applyOrderings($query, array $orderings)
+    {
+        foreach ($orderings as $column => $direction) {
+            $query->orderBy($column, $direction);
+        }
+
+        return $query;
+    }
+
+    /**
      * Build an "index" query for the given resource.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request

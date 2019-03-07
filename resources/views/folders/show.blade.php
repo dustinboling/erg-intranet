@@ -10,9 +10,9 @@
         </div>
     </div>
 
-    @if (count($folder->folders) > 0)
+    @if (count($folder->children) > 0)
     <div class="row">
-        @foreach ($folder->folders as $subfolder)
+        @foreach ($folder->children as $subfolder)
         <div class="col-lg-3 col-6 mb-4">
             <a href="{{ route('folders.show', $subfolder->id) }}">
                 <div class="card text-white text-center">

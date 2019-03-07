@@ -56,7 +56,9 @@ class Announcement extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()
+                ->hideFromIndex()
+                ->hideFromDetail(),
             Text::make('Title')->sortable(),
             Trix::make('Content')->alwaysShow(), // TODO: enable ->withFiles('public')
         ];
@@ -104,5 +106,17 @@ class Announcement extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query->latest();
     }
 }

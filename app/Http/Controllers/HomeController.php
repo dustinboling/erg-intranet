@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Folder;
 use App\Announcement;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -26,12 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $folders = DB::table('folders')
-                        ->orderBy('name')
-                        ->get();
-        
-        $announcements = DB::table('announcements')->latest()->get();
-        
+        $folders = Folder::orderBy('name', 'asc')->get();
+        $announcements = Announcement::latest()->get();
+
         return view('home', compact('announcements', 'folders'));
     }
 }
