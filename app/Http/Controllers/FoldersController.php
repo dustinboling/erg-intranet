@@ -60,20 +60,38 @@ class FoldersController extends Controller
     {
         $notes = $folder->notes;
         $media = $folder->getMedia();
-        
-        $images = [];
-        $docs = [];
 
-        foreach ($media as $media_item) {
-            
-            if ($media_item->getTypeFromMime() === "image")
-                $images[] = $media_item;
-            else
-                $docs[] = $media_item;
-             
+        $images = collect();
+        $docs = collect();
+        $audio = collect();
+
+        foreach ($media as $mediaItem) {
+
+            switch ($mediaItem->getTypeFromMime()) {
+                case 'image':
+                    $images->push($mediaItem);
+                    break;
+
+                case 'other':
+                    if($mediaItem->getExtensionAttribute() == 'mp3')
+                    {
+                        $audio->push($mediaItem);
+                        break;
+                    }
+
+                default:
+                    $docs->push($mediaItem);
+                    break;
+            }
+
+            // if ($mediaItem->getTypeFromMime() === "image")
+            //     $images[] = $mediaItem;
+            // else
+            //     $docs[] = $mediaItem;
+
         }
 
-        return view('folders.show', compact('folder', 'notes', 'images', 'docs'));
+        return view('folders.show', compact('folder', 'notes', 'images', 'audio', 'docs'));
     }
 
     /**

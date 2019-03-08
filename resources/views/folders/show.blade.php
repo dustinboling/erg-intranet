@@ -72,6 +72,28 @@
     <hr class="mb-4" />
     @endif
 
+    <!-- AUDIO -->
+    @if (count($audio) > 0)
+    <div class="row">
+        @foreach ($audio as $aud)
+        <div class="col-md-6 mb-4">
+            <div class="card text-center">
+                <div class="card-header bg-erg-gradient text-white">{{ ucwords($aud->name) }}</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                            <audio class="w-100" controls>
+                                    <source src="{{ $aud->getUrl() }}" type="audio/mp3">
+                                    <p>Your browser doesn't support HTML5 audio. Here is a <a href="{{ $aud->getUrl() }}">link to the audio</a> instead.</p>
+                                </audio>
+                    </li>
+                    <li class="list-group-item"><a href="{{ $aud->getUrl() }}" download>Download</a> ({{ $aud->getHumanReadableSizeAttribute() }})</li>
+                </ul>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    <hr class="mb-4" />
+    @endif
 
     <!-- IMAGES -->
     @if (count($images) > 0)
