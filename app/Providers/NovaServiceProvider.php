@@ -49,6 +49,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             return in_array($user->email, [
                 'dustin@eugenerealtygroup.com',
                 'shannon@eugenerealtygroup.com',
+                'kendra@eugenerealtygroup.com',
+                'veronica@eugenerealtygroup.com',
             ]);
         });
     }
