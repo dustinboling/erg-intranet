@@ -53,7 +53,15 @@ class User extends Resource
 
             Gravatar::make(),
 
-            Text::make('Name')
+            Text::make('Preferred Name', 'name')
+                ->sortable()
+                ->rules('required', 'max:255'),
+
+            Text::make('First Name')
+                ->sortable()
+                ->rules('required', 'max:255'),
+
+            Text::make('Last Name')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
@@ -62,6 +70,12 @@ class User extends Resource
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
+
+            Text::make('Phone')
+                ->rules('nullable', 'max:255'),
+
+            Text::make('Website')
+                ->rules('nullable', 'url', 'max:255'),
 
             Password::make('Password')
                 ->onlyOnForms()

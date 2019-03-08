@@ -1,3 +1,22 @@
+@php
+function friendlyGreeting($name)
+{
+    // Set to Pacific Time
+    date_default_timezone_set('America/Los_Angeles');
+
+    // 24-hour format of an hour without leading zeros (0 through 23)
+    $hour = date('G');
+
+    if ( $hour >= 5 && $hour <= 11 ) {
+        return "Good Morning, {$name}!";
+    } else if ( $hour >= 12 && $hour <= 18 ) {
+        return "Good Afternoon, {$name}!";
+    } else if ( $hour >= 19 || $hour <= 4 ) {
+        return "Good Evening, {$name}!";
+    }
+}
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
@@ -15,7 +34,7 @@
         <div class="col">
             <!-- JUMBOTRON -->
             <div class="jumbotron bg-erg-gradient text-white py-4 mb-4">
-                <h1 class="display-5">Hello, {{ auth()->user()->name }}!</h1>
+                <h1 class="display-5">{{ friendlyGreeting(auth()->user()->name) }}</h1>
                 <p class="lead">Welcome to our company wide directory, file storage and Intranet. We have company logos, your business card photos, training videos, training audio files, an e-book, and checklists galore on here.</p>
             </div>
 
