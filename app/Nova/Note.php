@@ -47,7 +47,7 @@ class Note extends Resource
      *
      * @var bool
      */
-    public static $displayInNavigation = true;
+    public static $displayInNavigation = false;
 
     /**
      * Get the fields displayed by the resource.
