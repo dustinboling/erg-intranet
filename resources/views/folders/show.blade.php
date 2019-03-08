@@ -58,7 +58,7 @@
                 <tbody>
                     @foreach ($docs as $doc)
                     <tr>
-                        <th scope="row">{{ ucwords($doc->name) }}</th>
+                        <th scope="row">{{ ucwords(strtolower(str_replace(['-','_'], ' ', $doc->name))) }}</th>
                         <td>{{ $doc->getHumanReadableSizeAttribute() }}</td>
                         <td>{{ strtoupper($doc->getExtensionAttribute()) }}</td>
                         <td><a href="{{ $doc->getUrl() }}" target="_blank">Open</a></td>
@@ -78,7 +78,7 @@
         @foreach ($audio as $aud)
         <div class="col-md-6 mb-4">
             <div class="card text-center">
-                <div class="card-header bg-erg-gradient text-white">{{ ucwords($aud->name) }}</div>
+                <div class="card-header bg-erg-gradient text-white">{{ ucwords(strtolower(str_replace(['-','_'], ' ', $aud->name))) }}</div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                             <audio class="w-100" controls>
@@ -102,9 +102,9 @@
         <div class="col-md-3 mb-4">
             <div class="card">
                 <a href="{{ $img->getUrl('') }}">
-                    <img src="{{ $img->getUrl('thumb') }}" class="card-img-top" alt="{{ $img->name }}">
+                    <img src="{{ $img->getUrl('thumb') }}" class="card-img-top" alt="{{ ucwords(strtolower(str_replace(['-','_'], ' ', $img->name))) }}">
                 </a>
-                <div class="card-header bg-erg-gradient text-white">{{ ucwords($img->name) }}</div>
+                <div class="card-header bg-erg-gradient text-white">{{ ucwords(strtolower(str_replace(['-','_'], ' ', $img->name))) }}</div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $img->getHumanReadableSizeAttribute() }}</li>
                     <li class="list-group-item">{{ strtoupper($img->getExtensionAttribute()) }}</li>
