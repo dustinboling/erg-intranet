@@ -14,8 +14,8 @@ class AddPhoneAndWebsiteToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->text('phone')->after('email')->nullable()->default('');
-            $table->text('website')->after('phone')->nullable()->default('');
+            $table->text('phone')->after('email')->nullable();
+            $table->text('website')->after('phone')->nullable();
         });
     }
 
