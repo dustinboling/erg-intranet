@@ -59,7 +59,7 @@ class Announcement extends Resource
             ID::make()
                 ->hideFromIndex()
                 ->hideFromDetail(),
-            Text::make('Title')->sortable(),
+            Text::make('Announcement Title', 'title')->sortable(),
             Trix::make('Content')->alwaysShow(), // TODO: enable ->withFiles('public')
         ];
     }

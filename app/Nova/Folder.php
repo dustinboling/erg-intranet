@@ -56,7 +56,7 @@ class Folder extends Resource
             ID::make()
                 ->hideFromIndex()
                 ->hideFromDetail(),
-            Text::make('Name')->sortable(),
+            Text::make('Folder Name', 'name')->sortable(),
             Textarea::make('Description')->alwaysShow(),
             BelongsTo::make('Parent Folder', 'folder', 'App\Nova\Folder')->nullable(),
             HasMany::make('Sub Folders', 'folders', 'App\Nova\Folder'),

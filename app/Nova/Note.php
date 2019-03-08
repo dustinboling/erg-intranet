@@ -61,7 +61,7 @@ class Note extends Resource
             ID::make()
                 ->hideFromIndex()
                 ->hideFromDetail(),
-            Text::make('Title')->sortable(),
+            Text::make('Note Title', 'title')->sortable(),
             Trix::make('Content')
                 ->rules('required')
                 ->alwaysShow(), // TODO: enable ->withFiles('public')
