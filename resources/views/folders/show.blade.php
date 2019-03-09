@@ -77,18 +77,18 @@
     @if (count($audio) > 0)
     <div class="row">
         @foreach ($audio as $aud)
-        <div class="col-md-6 mb-4">
-            <div class="card text-center">
+        <div class="col-12 mb-4">
+            <div class="card">
                 <div class="card-header bg-erg-gradient text-white">{{ ucwords(strtolower(str_replace(['-','_'], ' ', $aud->name))) }}</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                            <audio class="w-100" controls>
-                                    <source src="{{ $aud->getUrl() }}" type="audio/mp3">
-                                    <p>Your browser doesn't support HTML5 audio. Here is a <a href="{{ $aud->getUrl() }}">link to the audio</a> instead.</p>
-                                </audio>
-                    </li>
-                    <li class="list-group-item"><a href="{{ $aud->getUrl() }}" download>Download</a> ({{ $aud->getHumanReadableSizeAttribute() }})</li>
-                </ul>
+                <div class="card-body text-center">
+                    <audio class="w-100 mb-3" controls>
+                        <source src="{{ $aud->getUrl() }}" type="audio/mp3">
+                        <p>Your browser doesn't support HTML5 audio. Here is a <a href="{{ $aud->getUrl() }}">link to the audio</a> instead.</p>
+                    </audio>
+                    <p class="card-text text-muted">
+                        <a href="{{ $aud->getUrl() }}" download>Download</a> <small>({{ $aud->getHumanReadableSizeAttribute() }})</small>
+                    </p>
+                </div>
             </div>
         </div>
         @endforeach
