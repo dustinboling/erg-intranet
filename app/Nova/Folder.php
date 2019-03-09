@@ -61,7 +61,9 @@ class Folder extends Resource
             BelongsTo::make('Parent Folder', 'folder', 'App\Nova\Folder')->nullable(),
             HasMany::make('Sub Folders', 'folders', 'App\Nova\Folder'),
             HasMany::make('Notes'),
-            Medialibrary::make('Media')->hideFromIndex(), // it uses default collection
+            Medialibrary::make('Media')
+                ->sortable()
+                ->hideFromIndex(), // it uses default collection
         ];
     }
 
