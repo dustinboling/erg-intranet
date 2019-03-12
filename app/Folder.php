@@ -3,6 +3,7 @@
 namespace App;
 
 use Spatie\MediaLibrary\File;
+use Laravel\Nova\Actions\Actionable;
 use Spatie\MediaLibrary\Models\Media;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -11,7 +12,7 @@ use Spatie\MeidaLibrary\HasMedia\Manipulations;
 
 class Folder extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use HasMediaTrait, Actionable;
     protected $guarded = [];
 
     /**
