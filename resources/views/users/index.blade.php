@@ -13,28 +13,30 @@
 
     <div class="row">
         <div class="col">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Website</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                    <tr>
-                    <th scope="row">{{ $user->last_name }}</th>
-                        <td>{{ $user->first_name }}</td>
-                        <td><a href="tel:{{ $user->phone }}">{{ $user->phone }}</a></td>
-                        <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
-                        <td><a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a></td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Website</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                        <tr>
+                        <th scope="row">{{ $user->last_name }}</th>
+                            <td>{{ $user->first_name }}</td>
+                            <td><a href="tel:{{ $user->phone }}">{{ $user->phone }}</a></td>
+                            <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
+                            <td><a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
