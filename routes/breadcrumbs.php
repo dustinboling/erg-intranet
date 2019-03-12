@@ -11,7 +11,7 @@ Breadcrumbs::for('folders', function ($trail) {
     $trail->push('All Resources', route('folders.index'));
 });
 
-// Home > Folders.index >
+// Home > Folders.index > Folder.show
 Breadcrumbs::for('folder', function ($trail, $folder) {
     $trail->parent('folders'); // references Breadcrumb route above
 
@@ -30,4 +30,10 @@ Breadcrumbs::for('folder', function ($trail, $folder) {
     }
 
     $trail->push($folder->name);
+});
+
+// Home > Users.index
+Breadcrumbs::for('users', function ($trail) {
+    $trail->parent('home'); // references Breadcrumb route above
+    $trail->push('Company Directory', route('users.index'));
 });
