@@ -33,12 +33,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a href="{{ route('home') }}" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('folders.index') }}" class="nav-link">All Resources</a>
-                        </li>
+                            <li class="nav-item">
+                                <a href="{{ route('home') }}" class="nav-link">Home</a>
+                            </li>
+                        @auth
+                            <li class="nav-item">
+                                <a href="{{ route('folders.index') }}" class="nav-link">All Resources</a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -54,6 +56,12 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a href="https://login.realgeeks.com/auth/login/3" target="_blank" class="nav-link">Real Geeks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://apps.rackspace.com/index.php" target="_blank" class="nav-link">Webmail</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

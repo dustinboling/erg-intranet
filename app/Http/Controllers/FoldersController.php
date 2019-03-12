@@ -24,7 +24,7 @@ class FoldersController extends Controller
      */
     public function index()
     {
-        $folders = Folder::all()->where('folder_id', '==', null);
+        $folders = Folder::where('folder_id', null)->orderBy('name')->get();
 
         return view('folders.index', compact('folders'));
     }

@@ -11,17 +11,17 @@
         </div>
     </div>
 
-    @if (count($folder->folders) > 0)
+    @if ( $folder->folders->isNotEmpty() )
     <div class="row">
-        @each('folders.partials.cover', $folder->folders, 'folder')
+        @each('folders.partials.cover', $folder->folders->sortBy('name'), 'folder')
     </div>
     <hr class="mt-1 mb-4" />
     @endif
 
     <!-- NOTES -->
-    @if (count($notes) > 0)
+    @if ( $notes->count() )
     <div class="row">
-        @foreach ($notes as $note)
+        @foreach ($notes->sortBy('title') as $note)
         <div class="col-md-6 mb-4">
             <div class="card" style="box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px;">
                 <div class="card-header bg-erg-gradient text-white">{{ $note->title }}</div>
@@ -43,7 +43,7 @@
     @endif
 
     <!-- DOCUMENTS -->
-    @if (count($docs) > 0)
+    @if ( $docs->count() )
     <div class="row">
         <div class="col">
             <table class="table table-striped">
@@ -74,7 +74,7 @@
     @endif
 
     <!-- AUDIO -->
-    @if (count($audio) > 0)
+    @if ( $audio->count() )
     <div class="row">
         @foreach ($audio as $aud)
         <div class="col-12 mb-4">
@@ -97,7 +97,7 @@
     @endif
 
     <!-- IMAGES -->
-    @if (count($images) > 0)
+    @if ( $images->count() )
     <div class="row">
         @foreach ($images as $img)
         <div class="col-md-3 mb-4">
