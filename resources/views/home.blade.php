@@ -72,7 +72,8 @@ function friendlyGreeting($name)
                     </div>
 
                     @foreach ($announcements as $announcement)
-                        <div class="col-12 card mb-2">
+                    <div class="col-12">
+                        <div class="card mb-2">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $announcement->title }}</h5>
                                 {!! $announcement->content !!}
@@ -85,6 +86,7 @@ function friendlyGreeting($name)
                                 </small>
                             </div>
                         </div>
+                    </div>
                     @endforeach
                 </div>
             @endif
