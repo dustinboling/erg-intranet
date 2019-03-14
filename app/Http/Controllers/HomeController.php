@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Folder;
+use App\Calendar;
 use App\Announcement;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,8 @@ class HomeController extends Controller
         $announcements = Announcement::latest()
             ->take(10)
             ->get();
+        $calendars = Calendar::orderBy('name')->get();
 
-        return view('home', compact('topLevelFolders', 'latestFolders', 'announcements'));
+        return view('home', compact('topLevelFolders', 'latestFolders', 'announcements', 'calendars'));
     }
 }

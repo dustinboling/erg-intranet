@@ -37,3 +37,15 @@ Breadcrumbs::for('users', function ($trail) {
     $trail->parent('home'); // references Breadcrumb route above
     $trail->push('Company Directory', route('users.index'));
 });
+
+// Home > Calendars.index
+Breadcrumbs::for('calendars', function ($trail) {
+    $trail->parent('home'); // references Breadcrumb route above
+    $trail->push('All Calendars', route('calendars.index'));
+});
+
+// Home > Calendars.index > Calendar.show
+Breadcrumbs::for('calendar', function ($trail, $calendar) {
+    $trail->parent('calendars'); // references Breadcrumb route above
+    $trail->push($calendar->name);
+});

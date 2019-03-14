@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Eugene Realty Group') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @stack('head')
 </head>
 <body>
     <div id="app">
@@ -38,7 +39,10 @@
                             </li>
                         @auth
                             <li class="nav-item">
-                                <a href="{{ route('folders.index') }}" class="nav-link">All Resources</a>
+                                <a href="{{ route('folders.index') }}" class="nav-link">Resources</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('calendars.index') }}" class="nav-link">Calendars</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('users.index') }}" class="nav-link">Company Directory</a>
@@ -93,17 +97,16 @@
             @yield('content')
         </main>
 
-        <footer style="margin-top:250px">
+        <footer class="my-4">
             <p style="font-size:0.75rem;font-weight:300;color:#7c858e;" class="mt-4 text-center">
                 <a href="https://internal.eugenerealtygroup.com" class="text-primary dim no-underline">ERG Intranet</a>
                 <span class="px-1">&middot;</span>
-                &copy; {{ date('Y') }} Eugene Realty Group LLC - By Dustin Boling
-                <span class="px-1">&middot;</span>
-                Questions? (541) 999-1884
+                &copy; {{ date('Y') }} Eugene Realty Group LLC by <a href="mailto:dustin@eugenerealtygroup.com">Dustin</a>
                 <span class="px-1">&middot;</span>
                 v{{ Laravel\Nova\Nova::version() }}
             </p>
         </footer>
     </div>
+    @stack('scripts')
 </body>
 </html>

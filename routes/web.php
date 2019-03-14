@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/company-directory', 'UsersController@index')->name('users.index');
 Route::resource('folders', 'FoldersController');
+Route::resource('calendars', 'CalendarsController');
+Route::apiResource('calendars/{calendar}/calendar-events', 'CalendarEventsController');

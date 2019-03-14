@@ -13,14 +13,26 @@ class UsersTableSeeder extends Seeder
     {
         // Insert the initial users
         DB::table('users')->insert([
-            'name' => 'Dustin Boling',
-            'email' => 'dustin@eugenerealtygroup.com',
-            'password' => bcrypt('123456'),
-        ]);
-        DB::table('users')->insert([
-            'name' => 'Shannon Doyle',
-            'email' => 'shannon@eugenerealtygroup.com',
-            'password' => bcrypt('123456'),
+            [
+                'id' => 1,
+                'name' => 'Dustin',
+                'first_name' => 'Dustin',
+                'last_name' => 'Boling',
+                'phone' => '541-555-1212',
+                'website' => 'https://eugenerealtygroup.com',
+                'email' => 'dustin@eugenerealtygroup.com',
+                'password' => bcrypt('123456')
+            ],
+            [
+                'id' => 2,
+                'name' => 'Shannon',
+                'first_name' => 'Shannon',
+                'last_name' => 'Doyle',
+                'phone' => '541-555-1212',
+                'website' => 'https://eugenerealtygroup.com',
+                'email' => 'shannon@eugenerealtygroup.com',
+                'password' => bcrypt('123456'),
+            ],
         ]);
     }
 }
