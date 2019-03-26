@@ -55,6 +55,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 'matt@eugenerealtygroup.com',
                 'rosie@eugenerealtygroup.com',
                 'clint@eugenerealtygroup.com',
+                'stefanie@eugenerealtygroup.com',
             ]);
         });
     }
