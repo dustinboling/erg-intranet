@@ -40,7 +40,7 @@ function friendlyGreeting($name)
 
             {{-- Calendars --}}
             @if ( $calendars->isNotEmpty() )
-                <div class="row mb-2">
+                <div class="row mb-4">
                     <div class="col-12">
                         <div class="bg-erg-gradient text-white py-3 px-4 mb-3 rounded shadow-sm">
                             <h4 class="my-0 text-center">Calendars</h4>
@@ -52,7 +52,7 @@ function friendlyGreeting($name)
 
             {{-- Resources --}}
             @if ( $topLevelFolders->isNotEmpty() )
-                <div class="row mb-2">
+                <div class="row mb-4">
                     <div class="col-12">
                         <div class="bg-erg-gradient text-white py-3 px-4 mb-3 rounded shadow-sm">
                             <h4 class="my-0 text-center">Resources</h4>
@@ -64,16 +64,16 @@ function friendlyGreeting($name)
 
             {{-- Announcements --}}
             @if ( $announcements->isNotEmpty() )
-                <div class="row mb-2">
-                    <div class="col-12">
-                        <div class="bg-erg-gradient text-white py-3 px-4 mb-3 rounded shadow-sm">
+                <div class="row mb-4">
+                    <div class="col-12 mb-2">
+                        <div class="bg-erg-gradient text-white py-3 px-4 rounded shadow-sm">
                             <h4 class="my-0 text-center">Announcements</h4>
                         </div>
                     </div>
 
                     @foreach ($announcements as $announcement)
-                    <div class="col-12">
-                        <div class="card mb-2">
+                    <div class="col-12 mb-2">
+                        <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $announcement->title }}</h5>
                                 {!! $announcement->content !!}
