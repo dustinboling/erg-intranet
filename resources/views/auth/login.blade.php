@@ -2,6 +2,22 @@
 
 @section('content')
 <div class="container">
+    {{-- Google Search --}}
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="bg-erg-gradient text-white p-2 rounded-pill shadow-sm">
+                <form action="https://www.google.com/search" id="f" method="get" target="_blank">
+                    <div class="input-group">
+                        <input name="q" type="text" class="form-control rounded-pill" placeholder="Google Search" aria-label="Google Search" aria-describedby="button-gsearch">
+                        <div class="input-group-append">
+                            <button class="btn text-white rounded-pill" type="submit" id="button-gsearch">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

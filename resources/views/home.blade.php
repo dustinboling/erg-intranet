@@ -32,10 +32,26 @@ function friendlyGreeting($name)
     </div>
     <div class="row">
         <div class="col">
-            <!-- Welcome Greeting -->
+            {{-- Welcome Greeting --}}
             <div class="jumbotron bg-erg-gradient text-white py-4 mb-4 shadow-sm">
                 <h1 class="display-5">{{ friendlyGreeting(auth()->user()->name) }}</h1>
                 <p class="lead">Welcome to our company wide directory, file storage and Intranet. We have company logos, your business card photos, training videos, training audio files, an e-book, and checklists galore on here.</p>
+            </div>
+
+            {{-- Google Search --}}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="bg-erg-gradient text-white p-2 rounded-pill shadow-sm">
+                        <form action="https://www.google.com/search" id="f" method="get" target="_blank">
+                            <div class="input-group">
+                                <input name="q" type="text" class="form-control rounded-pill" placeholder="Google Search" aria-label="Google Search" aria-describedby="button-gsearch">
+                                <div class="input-group-append">
+                                    <button class="btn text-white rounded-pill" type="submit" id="button-gsearch">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
 
             {{-- Calendars --}}

@@ -34,10 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @auth
                             <li class="nav-item">
                                 <a href="{{ route('home') }}" class="nav-link">Home</a>
                             </li>
-                        @auth
                             <li class="nav-item">
                                 <a href="{{ route('folders.index') }}" class="nav-link">Resources</a>
                             </li>
@@ -54,6 +54,12 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            <li class="nav-item">
+                                <a href="https://login.realgeeks.com/auth/login/3" target="_blank" class="nav-link">Real Geeks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://apps.rackspace.com/index.php" target="_blank" class="nav-link">Webmail</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
