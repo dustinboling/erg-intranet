@@ -21,15 +21,15 @@ function friendlyGreeting($name)
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            @if (session('status'))
+    @if (session('status'))
+        <div class="row">
+            <div class="col-12">
                 <div class="alert alert-success" role="alert">
                     {{ session('status') }}
                 </div>
-            @endif
+            </div>
         </div>
-    </div>
+    @endif
     <div class="row">
         <div class="col">
             {{-- Welcome Greeting --}}
@@ -109,6 +109,22 @@ function friendlyGreeting($name)
         </div>
         {{-- Sidebar --}}
         <div class="col-md-3">
+            {{-- Links --}}
+            <ul class="list-group mb-4 shadow-sm">
+                    <li class="list-group-item list-group-item-action bg-erg-gradient text-white"><strong>External Links</strong></li>
+                    <li class="list-group-item list-group-item-action">
+                        <a href="http://www.rmlsweb.com/" target="_blank">RMLS</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a href="https://www.rlid.org/" target="_blank">Regional Land Information Database</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a href="https://app.paperlesspipeline.com/accounts/login/" target="_blank">Paperless Pipeline</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a href="https://new.zipformplus.com/default.aspx#" target="_blank">zipForm Plus</a>
+                    </li>
+                </ul>
             {{-- Latest Resources --}}
             <ul class="list-group mb-4 shadow-sm">
                 <li class="list-group-item list-group-item-action bg-erg-gradient text-white"><strong>Latest Resources</strong></li>
