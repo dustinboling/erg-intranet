@@ -32,16 +32,17 @@ function friendlyGreeting($name)
     @endif
     <div class="row">
         <div class="col">
-            {{-- Welcome Greeting --}}
-            <div class="jumbotron bg-erg-gradient text-white py-4 mb-4 shadow-sm">
+
+
+            {{-- <div class="jumbotron bg-erg-gradient text-white py-4 mb-4 shadow-sm">
                 <h1 class="display-5">{{ friendlyGreeting(auth()->user()->name) }}</h1>
                 <p class="lead">Welcome to our company wide directory, file storage and Intranet. We have company logos, your business card photos, training videos, training audio files, an e-book, and checklists galore on here.</p>
-            </div>
+            </div> --}}
 
             {{-- Google Search --}}
             <div class="row mb-4">
                 <div class="col-12">
-                    <div class="bg-erg-gradient text-white p-2 rounded-pill shadow-sm">
+                    <div class="bg-erg-gradient text-white p-2 rounded shadow-sm">
                         <form action="https://www.google.com/search" id="f" method="get" target="_blank">
                             <div class="input-group">
                                 <input name="q" type="text" class="form-control rounded-pill" placeholder="Google Search" aria-label="Google Search" aria-describedby="button-gsearch">
@@ -54,11 +55,19 @@ function friendlyGreeting($name)
                 </div>
             </div>
 
+{{-- Welcome Greeting --}}
+<div class="row mb-4">
+        <div class="col-12">
+            <h1 class="">{{ friendlyGreeting(auth()->user()->name) }}</h1>
+            <p class="lead">Welcome to our company wide directory, file storage and Intranet. We have company logos, your business card photos, training videos, training audio files, an e-book, and checklists galore on here.</p>
+        </div>
+    </div>
+
             {{-- Calendars --}}
             @if ( $calendars->isNotEmpty() )
                 <div class="row mb-4">
                     <div class="col-12">
-                        <div class="bg-erg-gradient text-white py-3 px-4 mb-3 rounded shadow-sm">
+                        <div class="bg-erg-gradient text-white py-3 px-4 mb-3 rounded shadow">
                             <h4 class="my-0 text-center">Calendars</h4>
                         </div>
                     </div>
@@ -70,7 +79,7 @@ function friendlyGreeting($name)
             @if ( $topLevelFolders->isNotEmpty() )
                 <div class="row mb-4">
                     <div class="col-12">
-                        <div class="bg-erg-gradient text-white py-3 px-4 mb-3 rounded shadow-sm">
+                        <div class="bg-erg-gradient text-white py-3 px-4 mb-3 rounded shadow">
                             <h4 class="my-0 text-center">Resources</h4>
                         </div>
                     </div>
@@ -82,7 +91,7 @@ function friendlyGreeting($name)
             @if ( $announcements->isNotEmpty() )
                 <div class="row mb-4">
                     <div class="col-12 mb-2">
-                        <div class="bg-erg-gradient text-white py-3 px-4 rounded shadow-sm">
+                        <div class="bg-erg-gradient text-white py-3 px-4 rounded shadow">
                             <h4 class="my-0 text-center">Announcements</h4>
                         </div>
                     </div>
