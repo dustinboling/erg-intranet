@@ -52,7 +52,7 @@
         scheduler.config.first_hour = 8;
         scheduler.config.last_hour = 18;
         scheduler.config.readonly = true;
-        scheduler.init("scheduler_here",null,"month");
+        scheduler.init("scheduler_here",null,"week");
         // must be after init and before load
         scheduler.setLoadMode("month");
         scheduler.load("/calendars/{{ $calendar->id }}/calendar-events", "json");
