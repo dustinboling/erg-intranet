@@ -27,10 +27,10 @@
                     <tbody>
                         @foreach ($users as $user)
                         <tr>
-                        <th scope="row">{{ $user->first_name }}</th>
+                        <th scope="row">{{ $user->name }}</th>
                         <td>{{ $user->last_name }}</td>
                         <td><a href="tel:{{ $user->phone }}">{{ $user->phone }}</a></td>
-                        <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
+                        <td><a href="mailto:{{ $user->email }}" target="_blank">{{ $user->email }}</a></td>
                         <td><a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a></td>
                         </tr>
                         @endforeach
