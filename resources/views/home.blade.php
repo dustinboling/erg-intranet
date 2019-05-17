@@ -63,17 +63,7 @@ function friendlyGreeting($name)
         </div>
     </div>
 
-            {{-- Calendars --}}
-            @if ( $calendars->isNotEmpty() )
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <div class="bg-erg-gradient text-white py-3 px-4 mb-3 rounded shadow">
-                            <h4 class="my-0 text-center">Calendars</h4>
-                        </div>
-                    </div>
-                    @each('calendars.partials.cover', $calendars, 'calendar')
-                </div>
-            @endif
+
 
             {{-- Resources --}}
             @if ( $topLevelFolders->isNotEmpty() )
@@ -84,6 +74,18 @@ function friendlyGreeting($name)
                         </div>
                     </div>
                     @each('folders.partials.cover', $topLevelFolders, 'folder')
+                </div>
+            @endif
+
+            {{-- Calendars --}}
+            @if ( $calendars->isNotEmpty() )
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="bg-erg-gradient text-white py-3 px-4 mb-3 rounded shadow">
+                            <h4 class="my-0 text-center">Calendars</h4>
+                        </div>
+                    </div>
+                    @each('calendars.partials.cover', $calendars, 'calendar')
                 </div>
             @endif
 
