@@ -81,7 +81,7 @@
             <div class="card">
                 <div class="card-header bg-erg-gradient text-white">{{ ucwords(strtolower(str_replace(['-','_'], ' ', $aud->name))) }}</div>
                 <div class="card-body text-center">
-                    <audio class="w-100 mb-3" preload="metadata" controls>
+                    <audio class="w-100 mb-3" preload="none" controls>
                         <source src="{{ $aud->getUrl() }}" type="audio/mp3">
                         <p>Your browser doesn't support HTML5 audio. Here is a <a href="{{ $aud->getUrl() }}">link to the audio</a> instead.</p>
                     </audio>
