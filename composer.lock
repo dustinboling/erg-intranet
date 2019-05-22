@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46be14c072a3ea63672ba4af010fcdaf",
+    "content-hash": "fcea0c419b89b68fa13428efb74542e7",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -62,6 +62,57 @@
                 "time"
             ],
             "time": "2019-04-23T19:00:57+00:00"
+        },
+        {
+            "name": "causelabs/resource-index-link",
+            "version": "v1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/causelabs/resource-index-link.git",
+                "reference": "688fcc124c96b8c4a72b1a0fa3a416fcf1d4715c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/causelabs/resource-index-link/zipball/688fcc124c96b8c4a72b1a0fa3a416fcf1d4715c",
+                "reference": "688fcc124c96b8c4a72b1a0fa3a416fcf1d4715c",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "*",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Causelabs\\ResourceIndexLink\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Causelabs\\ResourceIndexLink\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rick Sharp",
+                    "email": "rick@causelabs.com",
+                    "homepage": "http://www.causelabs.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A Laravel Nova Resource Index Link field.",
+            "keywords": [
+                "laravel",
+                "link",
+                "nova"
+            ],
+            "time": "2019-01-17T20:23:17+00:00"
         },
         {
             "name": "davejamesmiller/laravel-breadcrumbs",

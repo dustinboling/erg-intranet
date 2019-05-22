@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Treestoneit\BelongsToField\BelongsToField;
+use Causelabs\ResourceIndexLink\ResourceIndexLink;
 use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 
 class Folder extends Resource
@@ -58,9 +59,10 @@ class Folder extends Resource
             ID::make()
                 ->hideFromIndex()
                 ->hideFromDetail(),
-            Text::make('Folder Name', 'name')->sortable(),
+            ResourceIndexLink::make('Folder Name', 'name')->sortable(),
+            BelongsTo::make('Parent Folder', 'folder', 'App\Nova\Folder')->nullable()->hideFromIndex(),
             Textarea::make('Description')->alwaysShow(),
-            BelongsTo::make('Parent Folder', 'folder', 'App\Nova\Folder')->nullable(),
+
 
             Medialibrary::make('Media')
                 ->sortable()
@@ -121,6 +123,9 @@ class Folder extends Resource
      */
     public static function indexQuery(NovaRequest $request, $query)
     {
-        return $query->orderBy('name', 'asc');
+        if($request->__isSet('viaResourceId')) {
+            return $query->orderBy('name', 'asc');
+        }
+        return $query->where('folder_id', null)->orderBy('name', 'asc')->get();
     }
 }
