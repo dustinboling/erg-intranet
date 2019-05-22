@@ -53,14 +53,15 @@ class Folder extends Resource
     public function fields(Request $request)
     {
         return [
+            HasMany::make('Sub Folders', 'folders', 'App\Nova\Folder'),
+            HasMany::make('Notes'),
             ID::make()
                 ->hideFromIndex()
                 ->hideFromDetail(),
             Text::make('Folder Name', 'name')->sortable(),
             Textarea::make('Description')->alwaysShow(),
             BelongsTo::make('Parent Folder', 'folder', 'App\Nova\Folder')->nullable(),
-            HasMany::make('Sub Folders', 'folders', 'App\Nova\Folder'),
-            HasMany::make('Notes'),
+
             Medialibrary::make('Media')
                 ->sortable()
                 ->hideFromIndex(), // it uses default collection
