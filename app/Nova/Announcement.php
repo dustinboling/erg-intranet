@@ -31,7 +31,7 @@ class Announcement extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title',
+        'title', 'content'
     ];
 
     /**

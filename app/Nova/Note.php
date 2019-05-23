@@ -33,7 +33,7 @@ class Note extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title',
+        'title', 'content'
     ];
 
     /**
