@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Causelabs\ResourceIndexLink\ResourceIndexLink;
 
 class Calendar extends Resource
 {
@@ -49,7 +50,7 @@ class Calendar extends Resource
     public function fields(Request $request)
     {
         return [
-            Text::make('Calendar Name', 'name'),
+            ResourceIndexLink::make('Calendar Name', 'name'),
             Text::make('Description'),
             ID::make()->onlyOnForms(),
             HasMany::make('Calendar Events'),

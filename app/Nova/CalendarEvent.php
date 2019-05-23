@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Causelabs\ResourceIndexLink\ResourceIndexLink;
 
 class CalendarEvent extends Resource
 {
@@ -57,7 +58,7 @@ class CalendarEvent extends Resource
     public function fields(Request $request)
     {
         return [
-            Text::make('Event Text', 'text'),
+            ResourceIndexLink::make('Event Text', 'text'),
             DateTime::make('Start', 'start_date'),
             DateTime::make('End', 'end_date'),
             BelongsTo::make('Calendar'),

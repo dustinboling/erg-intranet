@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Causelabs\ResourceIndexLink\ResourceIndexLink;
 
 class Announcement extends Resource
 {
@@ -59,7 +60,7 @@ class Announcement extends Resource
             ID::make()
                 ->hideFromIndex()
                 ->hideFromDetail(),
-            Text::make('Announcement Title', 'title')->sortable(),
+            ResourceIndexLink::make('Announcement Title', 'title')->sortable(),
             Trix::make('Content')->alwaysShow(), // TODO: enable ->withFiles('public')
         ];
     }

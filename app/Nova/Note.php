@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Causelabs\ResourceIndexLink\ResourceIndexLink;
 
 class Note extends Resource
 {
@@ -61,10 +62,10 @@ class Note extends Resource
             ID::make()
                 ->hideFromIndex()
                 ->hideFromDetail(),
-            Text::make('Note Title', 'title')->sortable(),
+            ResourceIndexLink::make('Note Title', 'title')->sortable(),
             Trix::make('Content')
-                ->rules('required')
-                ->alwaysShow(), // TODO: enable ->withFiles('public')
+                ->alwaysShow()
+                ->nullable(), // TODO: enable ->withFiles('public')
             Text::make('YouTube Video ID', 'youtube_video')
                 ->hideFromIndex()
                 ->withMeta(['extraAttributes' => [
