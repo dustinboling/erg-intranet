@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\Password;
+use Causelabs\ResourceIndexLink\ResourceIndexLink;
 
 class User extends Resource
 {
@@ -30,7 +31,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id', 'name', 'email', 'phone'
     ];
 
     /**
@@ -53,7 +54,7 @@ class User extends Resource
 
             Gravatar::make(),
 
-            Text::make('Preferred Name', 'name')
+            ResourceIndexLink::make('Preferred Name', 'name')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
