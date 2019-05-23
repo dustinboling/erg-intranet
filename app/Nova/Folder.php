@@ -35,7 +35,7 @@ class Folder extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name',
+        'name', 'description'
     ];
 
     /**
@@ -55,18 +55,16 @@ class Folder extends Resource
     {
         return [
             HasMany::make('Sub Folders', 'folders', 'App\Nova\Folder'),
-            HasMany::make('Notes'),
             ID::make()
                 ->hideFromIndex()
                 ->hideFromDetail(),
             ResourceIndexLink::make('Folder Name', 'name')->sortable(),
             BelongsTo::make('Parent Folder', 'folder', 'App\Nova\Folder')->nullable()->hideFromIndex(),
             Textarea::make('Description')->alwaysShow(),
-
-
             Medialibrary::make('Media')
                 ->sortable()
                 ->hideFromIndex(), // it uses default collection
+            HasMany::make('Notes'),
         ];
     }
 
@@ -123,7 +121,7 @@ class Folder extends Resource
      */
     public static function indexQuery(NovaRequest $request, $query)
     {
-        if($request->__isSet('viaResourceId')) {
+        if($request->__isSet('viaResourceId') || $request->__isSet('search')) {
             return $query->orderBy('name', 'asc');
         }
         return $query->where('folder_id', null)->orderBy('name', 'asc')->get();
