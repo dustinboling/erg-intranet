@@ -121,9 +121,9 @@ class Folder extends Resource
      */
     public static function indexQuery(NovaRequest $request, $query)
     {
-        // This will allow a full list of folders to populate
-        // dropdown menus in related resources
-        if($request->first == 'false') {
+        // This will allow a full list of folders to populate dropdown menus in related resources.
+        // It will also allow global search to search all levels of folders
+        if($request->first == 'false' || $request->__isSet('search')) {
             return $query->orderBy('name', 'asc');
         }
 
