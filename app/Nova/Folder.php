@@ -121,9 +121,15 @@ class Folder extends Resource
      */
     public static function indexQuery(NovaRequest $request, $query)
     {
-        if($request->__isSet('viaResourceId') || $request->__isSet('search')) {
+        // This will allow a full list of folders to populate
+        // dropdown menus in related resources
+        if($request->first == 'false') {
             return $query->orderBy('name', 'asc');
         }
-        return $query->where('folder_id', null)->orderBy('name', 'asc')->get();
+
+        // Only show top level folders on Folder index page
+        if(!$request->__isSet('viaResource') && !$request->__isSet('viaResourceId') && !$request->__isSet('viaRelationship') && !$request->__isSet('relationshipType')) {
+            return $query->where('folder_id', null)->orderBy('name', 'asc')->get();
+        }
     }
 }
