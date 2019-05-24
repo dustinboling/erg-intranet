@@ -60,10 +60,6 @@
         {
             "type": "path",
             "url": "./nova-components/NovaTheme"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/NovaFieldTitle"
         }
     ],
     "minimum-stability": "dev",
