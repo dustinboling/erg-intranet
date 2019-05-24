@@ -102,7 +102,9 @@
             <p style="font-size:0.75rem;font-weight:300;color:#7c858e;" class="mt-4 text-center">
                 <a href="https://internal.eugenerealtygroup.com" class="text-primary dim no-underline">ERG Intranet</a>
                 <span class="px-1">&middot;</span>
-                &copy; {{ date('Y') }} Eugene Realty Group LLC by <a href="mailto:dustin@eugenerealtygroup.com">Dustin</a>
+                &copy; {{ date('Y') }} Eugene Realty Group LLC
+                <span class="px-1">&middot;</span>
+                <a href="http://www.dustinboling.com" target="_blank" class="text-primary dim no-underline">Web Development</a> by <a href="mailto:dustin@dustinboling.com" target="_blank" class="text-primary dim no-underline">Dustin</a>
                 <span class="px-1">&middot;</span>
                 v{{ Laravel\Nova\Nova::version() }}
             </p>
