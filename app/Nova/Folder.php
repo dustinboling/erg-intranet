@@ -121,15 +121,6 @@ class Folder extends Resource
      */
     public static function indexQuery(NovaRequest $request, $query)
     {
-        // This will allow a full list of folders to populate dropdown menus in related resources.
-        // It will also allow global search to search all levels of folders
-        if($request->first == 'false' || $request->__isSet('search')) {
-            return $query->orderBy('name', 'asc');
-        }
-
-        // Only show top level folders on Folder index page
-        if(!$request->__isSet('viaResource') && !$request->__isSet('viaResourceId') && !$request->__isSet('viaRelationship') && !$request->__isSet('relationshipType')) {
-            return $query->where('folder_id', null)->orderBy('name', 'asc')->get();
-        }
+        return $query->orderBy('name', 'asc');
     }
 }
