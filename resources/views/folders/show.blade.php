@@ -26,14 +26,14 @@
             <div class="card" style="box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px;">
                 <div class="card-header bg-erg-gradient text-white">{{ $note->title }}</div>
                 <div class="card-body">
-                    {{-- Text content of the Note --}}
-                    <div class="card-text mb-3">
-                        {!! $note->content !!}
-                    </div>
                     {{-- Embed the YouTube Video if one exists --}}
                     @includeWhen($note->youtube_video, 'notes.partials.youtube', ['youtubeUrl' => $note->youtube_video])
                     {{-- Output any additional embed codes --}}
                     {!! $note->embed_code !!}
+                    {{-- Text content of the Note --}}
+                    <div class="card-text mb-3">
+                        {!! $note->content !!}
+                    </div>
                 </div>
             </div>
         </div>
