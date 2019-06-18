@@ -31,7 +31,7 @@
                     {{-- Output any additional embed codes --}}
                     {!! $note->embed_code !!}
                     {{-- Text content of the Note --}}
-                    <div class="card-text mb-3">
+                    <div class="card-text mt-3">
                         {!! $note->content !!}
                     </div>
                 </div>
