@@ -55,7 +55,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a href="https://login.realgeeks.com/auth/login/3" target="_blank" class="nav-link">Real Geeks</a>
+                                <a href="https://leads.realgeeks.com/leads" target="_blank" class="nav-link">Real Geeks</a>
                             </li>
                             <li class="nav-item">
                                 <a href="https://apps.rackspace.com/index.php" target="_blank" class="nav-link">Webmail</a>
