@@ -48,15 +48,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         Gate::define('viewNova', function ($user) {
             return in_array($user->email, [
                 'dustin@eugenerealtygroup.com',
+                'tiffany@eugenerealtygroup.com',
                 'shannon@eugenerealtygroup.com',
-                'kendra@eugenerealtygroup.com',
-                'veronica@eugenerealtygroup.com',
-                'jjardine@eugenerealtygroup.com',
-                'matt@eugenerealtygroup.com',
-                'rosie@eugenerealtygroup.com',
                 'clint@eugenerealtygroup.com',
-                'stefanie@eugenerealtygroup.com',
-                'kelsy@eugenerealtygroup.com'
+                'azaria@eugenerealtygroup.com',
             ]);
         });
     }
